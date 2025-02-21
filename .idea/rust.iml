@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="EMPTY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/1-course-introduction/1-introduction/1-setup-your-installation/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/1-basic-syntax/1-basic-syntax/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/2-ownership-and-references/1-move-semantics/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/2-ownership-and-references/2-borrowing/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/1-error-propagation/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/2-error-handling/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/3-slices/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/4-ring-buffer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/5-boxed-data/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/4-traits-and-generics/1-local-storage-vec/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2-foundations-of-rust/5-closures-and-dynamic-dispatch/1-config-reader/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/1-my-serde-app/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/3-bsn/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/4-3d-printer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/5-fizzbuzz/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/5-fizzbuzz/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/4-multitasking/2-parallel-multitasking/1-tf-idf/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/4-multitasking/2-parallel-multitasking/2-mutex/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/4-multitasking/3-asynchronous-multitasking/1-async-channels/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/4-multitasking/3-asynchronous-multitasking/2-async-chat/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6-rust-for-systems-programming/1-foreign-function-interface/1-crc-in-c/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6-rust-for-systems-programming/1-foreign-function-interface/2-crc-in-rust/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6-rust-for-systems-programming/1-foreign-function-interface/3-tweetnacl-bindgen/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/1-course-introduction/1-introduction/1-setup-your-installation/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/1-basic-syntax/1-basic-syntax/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/2-ownership-and-references/1-move-semantics/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/2-ownership-and-references/2-borrowing/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/1-error-propagation/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/2-error-handling/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/3-slices/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/4-ring-buffer/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/3-advanced-syntax/5-boxed-data/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/4-traits-and-generics/1-local-storage-vec/target" />
+      <excludeFolder url="file://$MODULE_DIR$/2-foundations-of-rust/5-closures-and-dynamic-dispatch/1-config-reader/target" />
+      <excludeFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/1-my-serde-app/target" />
+      <excludeFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/3-bsn/target" />
+      <excludeFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/4-3d-printer/target" />
+      <excludeFolder url="file://$MODULE_DIR$/3-crate-engineering/1-crate-engineering/5-fizzbuzz/target" />
+      <excludeFolder url="file://$MODULE_DIR$/4-multitasking/2-parallel-multitasking/1-tf-idf/target" />
+      <excludeFolder url="file://$MODULE_DIR$/4-multitasking/2-parallel-multitasking/2-mutex/target" />
+      <excludeFolder url="file://$MODULE_DIR$/4-multitasking/3-asynchronous-multitasking/1-async-channels/target" />
+      <excludeFolder url="file://$MODULE_DIR$/4-multitasking/3-asynchronous-multitasking/2-async-chat/target" />
+      <excludeFolder url="file://$MODULE_DIR$/6-rust-for-systems-programming/1-foreign-function-interface/1-crc-in-c/target" />
+      <excludeFolder url="file://$MODULE_DIR$/6-rust-for-systems-programming/1-foreign-function-interface/2-crc-in-rust/target" />
+      <excludeFolder url="file://$MODULE_DIR$/6-rust-for-systems-programming/1-foreign-function-interface/3-tweetnacl-bindgen/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
