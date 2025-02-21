@@ -1,5 +1,10 @@
 fn main() {
-    let input = [23, 82, 16, 45, 21, 94, 12, 34];
+    let input : [i32;8] = [23, 82, 16, 45, 21, 94, 12, 34];
+
+    if input.is_empty() {
+        println!("Array is empty");
+        return;
+    }
 
     let mut largest = input[0];
     let mut smallest = input[0];
