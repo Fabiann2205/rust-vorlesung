@@ -19,15 +19,15 @@
 //  - add a method "peek" so that "queue.peek()" returns the same thing as "queue.read()", but leaves the element in the queue
 
 struct RingBuffer {
-    data: [u8; 16],
+    data: Box<[u8]>,
     start: usize,
     end: usize,
 }
 
 impl RingBuffer {
-    fn new() -> RingBuffer {
+    fn new(size: usize) -> RingBuffer {
         RingBuffer {
-            data: [0; 16],
+            data: make_box(size),
             start: 0,
             end: 0,
         }
@@ -37,7 +37,24 @@ impl RingBuffer {
     /// it returns None if the queue was empty
 
     fn read(&mut self) -> Option<u8> {
-        todo!()
+        if self.start == self.end {
+            // The buffer is empty
+            None
+        } else {
+            let value = self.data[self.start];
+            self.start = (self.start + 1) % self.data.len();
+            Some(value)
+        }
+    }
+
+    fn peek(&mut self) -> Option<u8> {
+        if self.start == self.end {
+            // The buffer is empty
+            None
+        } else {
+            let value = self.data[self.start];
+            Some(value)
+        }
     }
 
     /// This function tries to put `value` on the queue; and returns true if this succeeds
@@ -52,6 +69,16 @@ impl RingBuffer {
         } else {
             self.end = pos;
 
+            true
+        }
+    }
+
+    fn has_room(&mut self) -> bool {
+        let pos = (self.end + 1) % self.data.len();
+        if pos == self.start {
+            // the buffer can hold no more new data
+            false
+        } else {
             true
         }
     }
@@ -75,13 +102,29 @@ impl Iterator for RingBuffer {
 }
 
 fn main() {
-    let mut queue = RingBuffer::new();
+    let mut queue = RingBuffer::new(10);
+    assert!(queue.has_room());
     assert!(queue.write(1));
     assert!(queue.write(2));
     assert!(queue.write(3));
     assert!(queue.write(4));
     assert!(queue.write(5));
-    for elem in queue {
-        println!("{elem}");
+    while queue.peek() != None {
+        println!("{:?}", queue.read().unwrap());
     }
+    /*for elem in queue {
+        println!("{elem}");
+    }*/
 }
+
+/*fn main() {
+    let size = 10;
+    let mut queue = RingBuffer::new(size);
+    let mut count = 0;
+
+    while queue.write(count as u8) {
+        count += 1;
+    }
+
+    println!("The queue of size {size} can hold {count} elements.");
+}*/
