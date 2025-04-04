@@ -1,15 +1,13 @@
-/// Very naive implementation of FizzBuzz
-pub fn fizz_buzz(i: u32) -> String {
-    if i % 3 == 0 {
-        if i % 5 == 0 {
-            "FizzBuzz".to_owned()
-        } else {
-            "Fizz".to_owned()
-        }
-    } else if i % 5 == 0 {
-        "Buzz".to_owned()
-    } else {
-        format!("{i}")
+pub fn fizz_buzz(i: u32, result: &mut String) {
+    result.clear();
+    match (i % 3 == 0, i % 5 == 0) {
+        (true, true) => result.push_str("FizzBuzz"),
+        (true, false) => result.push_str("Fizz"),
+        (false, true) => result.push_str("Buzz"),
+        (false, false) => {
+            use std::fmt::Write;
+            write!(result, "{}", i).unwrap();
+        },
     }
 }
 
@@ -22,11 +20,12 @@ mod tests {
         let expected_output = include_str!("../fizzbuzz.out");
         let expected_lines: Vec<&str> = expected_output.lines().collect();
 
+        let mut result = String::new();
         for (i, &line) in expected_lines.iter().enumerate() {
             let i = i as u32 + 1; // da die Zeilen bei 1 beginnen
-            let current = fizz_buzz(i);
-            println!("i: {i}, current: {current} line: {line}");
-            assert_eq!(current, line);
+            fizz_buzz(i, &mut result);
+            println!("i: {i}, current: {result} line: {line}");
+            assert_eq!(result, line);
         }
     }
 }

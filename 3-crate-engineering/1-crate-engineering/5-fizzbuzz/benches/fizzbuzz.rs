@@ -11,7 +11,8 @@ fn bench_fizz_buzz(c: &mut Criterion) {
     let mut group = c.benchmark_group("fizzbuzz");
     for input in [1, 2, 3, 5, 15, 16, 40, 42, 45, 113].into_iter() {
         group.bench_with_input(BenchmarkId::from_parameter(input), &input, |b, input| {
-            b.iter(|| fizz_buzz(*input))
+            let mut result = String::new();
+            b.iter(|| fizz_buzz(*input, &mut result))
         });
     }
     group.finish();
