@@ -31,16 +31,23 @@ pub struct Bsn {
 }
 
 impl Bsn {
-    /// Try to create a new BSN. Returns `Err` if the passed string
-    /// does not represent a valid BSN
     pub fn try_from_string<B: ToString>(bsn: B) -> Result<Self, Error> {
-        todo!()
+        let bsn_str = bsn.to_string();
+        Self::validate(&bsn_str)?;
+        Ok(Bsn { inner: bsn_str })
     }
 
-    /// Check whether the passed string represents a valid BSN.
-    //  Returns `Err` if the passed string does not represent a valid BSN
     pub fn validate(bsn: &str) -> Result<(), Error> {
-        todo!()
+        if bsn.len() != 9 {
+            return Err(Error::InvalidBsn);
+        }
+        let digits = bsn.chars().map(|c| c.to_digit(10).unwrap());
+        let sum: i32 = digits.enumerate().map(|(i, d)| if i == 8 { d as i32 } else { (9 - i as i32) * d as i32 }).sum();
+        if sum % 11 == 0 {
+            Ok(())
+        } else {
+            Err(Error::InvalidBsn)
+        }
     }
 }
 
@@ -49,7 +56,7 @@ impl Serialize for Bsn {
     where
         S: serde::Serializer,
     {
-        todo!("Serialize `self.inner` into a `str`")
+        serializer.serialize_str(&self.inner)
     }
 }
 
@@ -58,7 +65,6 @@ impl<'de> Deserialize<'de> for Bsn {
     where
         D: serde::Deserializer<'de>,
     {
-        /// A visitor for deserializing strings into `Bns`
         struct BsnVisitor;
 
         impl<'d> Visitor<'d> for BsnVisitor {
@@ -68,11 +74,15 @@ impl<'de> Deserialize<'de> for Bsn {
                 write!(formatter, "A string representing a valid BSN")
             }
 
-            // TODO: Override the correct `Visitor::visit_*` to validate the input and output a new `BSN`
-            // if the input represents a valid BSN. Note that we do not need to override all default methods
+            fn visit_str<E>(self, value: &str) -> Result<Self::Value, E>
+            where
+                E: serde::de::Error,
+            {
+                Bsn::try_from_string(value).map_err(E::custom)
+            }
         }
 
-        todo!("use `deserializer` to deserialize a str using a `BsnVisitor`");
+        deserializer.deserialize_str(BsnVisitor)
     }
 }
 

@@ -13,7 +13,20 @@ pub fn fizz_buzz(i: u32) -> String {
     }
 }
 
-// TODO Write a unit test, using the contents of `fizzbuzz.out` file
-// to compare.
-// You can use the `include_str!()` macro to include file
-// contents as `&str` in your artifact.
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_fizz_buzz() {
+        let expected_output = include_str!("../fizzbuzz.out");
+        let expected_lines: Vec<&str> = expected_output.lines().collect();
+
+        for (i, &line) in expected_lines.iter().enumerate() {
+            let i = i as u32 + 1; // da die Zeilen bei 1 beginnen
+            let current = fizz_buzz(i);
+            println!("i: {i}, current: {current} line: {line}");
+            assert_eq!(current, line);
+        }
+    }
+}
